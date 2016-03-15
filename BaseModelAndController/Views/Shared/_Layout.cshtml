@@ -1,0 +1,34 @@
+﻿@using BaseModelAndController.Models.BaseModels
+@model BaseModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.PageTitle - My MVC Application</title>
+    <meta id="description" content="@Model.MetaDescription" />
+</head>
+<body>
+    <div>
+        <h1>
+            My MVC Application - Using BaseModel and Controller
+        </h1>
+        <nav>
+            <hr />
+            <ul>
+                @foreach (Site site in (ViewBag.Sites as List<Site>))
+                {
+                    <li>
+                        <a href="/Home/Site/@site.SiteID">@site.PageTitle</a>
+                    </li>
+                }
+            </ul>
+            <hr />
+        </nav>
+        <hr />
+        @RenderBody()
+        <hr />
+    </div>
+</body>
+</html>
